@@ -1,0 +1,254 @@
+/*
+* Copyright © 2024. Cloud Software Group, Inc.
+* This file is subject to the license terms contained
+* in the license file that is distributed with this file.
+*/
+
+/* PROCESS FLOW */
+div.content > div.visualization div.canvas > div.process-flow {
+    flex: 1 1 auto;
+    position:relative;
+	/*background-color:lightyellow;
+	border:1px solid goldenrod;*/
+}
+
+
+
+/* PROCESS OBJECT */
+/* Applies to Activity, Task, Transition */
+div.content > div.visualization div.canvas > div.process-flow > div.process-object {
+    display:flex;
+    flex-direction: column;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.process-object > div.icons {
+    flex-grow:1;
+    display:flex;
+    flex-direction: row;
+    align-items:flex-end;
+    justify-content:right;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.process-object > div.icons > div.icon > svg {
+    height:15px;
+    width:15px;
+    fill:lightgrey;
+    display:none;
+}
+
+/* Process object SLA Violation */
+div.content > div.visualization div.canvas > div.process-flow > div.process-object.sla-violation > div.icons > div.icon.warning > svg {
+    display:block;
+	fill:crimson;
+}
+
+/* Process object Error */
+div.content > div.visualization div.canvas > div.process-flow > div.process-object.had-error > div.icons > div.icon.error > svg {
+    display:block;
+	fill:crimson;
+}
+
+/* Process object Progress */
+div.content > div.visualization div.canvas > div.process-flow > div.process-object.jeopardy > div.icons > div.icon.clock > svg {
+    display:block;
+	fill:darkorange;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.process-object.delayed > div.icons > div.icon.clock > svg {
+    display:block;
+	fill:crimson;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.process-object.delayed > div.icons > div.delay {
+    color:crimson;
+    font-weight:bold;
+    font-size:12px;
+    padding-bottom:0px;
+}
+
+
+
+/* ACTIVITY */
+div.content > div.visualization div.canvas > div.process-flow > div.activity{
+	position:absolute;
+	border:1px solid black;	
+    padding:4px;
+	font-size:12px;
+	font-weight:bold;
+	/* color:#666666; */
+    /* width:120px; */
+	/* height:65px; */
+	padding:2px 2px 2px 2px;
+    z-index:1;
+	user-select: none;           /* Non-prefixed version, currently */
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+}
+
+div.content > div.visualization.dark > div.canvas > div.process-flow > div.activity{
+	border:1px solid #666666;	
+}
+
+/* Activity conditional */
+div.content > div.visualization div.canvas > div.process-flow > div.activity.conditional{
+	border:1px dashed black;	
+}
+
+div.content > div.visualization.dark > div.canvas > div.process-flow > div.activity.conditional{
+	border:1px dashed #666666;	
+}
+
+/* Activity text if darkcolor is detected */
+div.content > div.visualization div.canvas > div.process-flow > div.activity.darkcolor{
+    /*color:white; */
+	border:1px solid #666666;	
+}
+
+/* Activity markable */
+div.content > div.visualization div.canvas > div.process-flow.markable > div.activity.markable:hover{
+    cursor:pointer;
+    padding:1px;
+    border:2px solid black;
+}
+
+div.content > div.visualization.dark > div.canvas > div.process-flow.markable > div.activity.markable:hover{
+    border:2px solid #666666;
+}
+
+
+
+
+/* TASK */
+div.content > div.visualization div.canvas > div.process-flow > div.task{
+    position:absolute;
+    border:2px solid lightgrey;	
+    border-radius:10px;
+    font-size:12px;
+    font-weight:bold;
+    width:120px;
+    height:65px;
+    padding:4px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently */
+    z-index:0;
+}
+
+/* Task markable */
+div.content > div.visualization div.canvas > div.process-flow.markable > div.task.markable:hover{
+    cursor:pointer;
+    padding:2px;
+    border:4px solid #666666;
+}
+
+/* Task marking */
+div.content > div.visualization div.canvas > div.process-flow > div.task.marked{
+    padding:2px;
+    border:4px solid #666666; /* border color will be applied by code */
+}
+
+
+/* TRANSITION */
+div.content > div.visualization div.canvas > div.process-flow > div.transition {
+	position:absolute;
+	pointer-events: none;
+	z-index:2;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;           /* Non-prefixed version, currently */
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition.activated {
+	z-index:3;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container {
+	position:relative;
+	height:100%;
+	width:100%;
+}
+
+/* Transition line */
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container > div.transition-line {
+	position:absolute;
+	pointer-events: auto;
+	border:1px solid darkgrey;
+}
+
+/* Transition conditional */
+div.content > div.visualization div.canvas > div.process-flow > div.transition.conditional > div.transition-group-container > div.transition-line {
+	border:1px dashed darkgrey;
+}
+
+/* Transition arrows */
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container > div.transition-arrow {
+	position:absolute;	
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container > div.transition-arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;  
+  border-bottom: 8px solid darkgrey;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container > div.transition-arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid darkgrey;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container > div.transition-arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid darkgrey;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.transition-group-container > div.transition-arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent; 
+  border-right:8px solid darkgrey; 
+}
+
+/* Transition markable */
+div.content > div.visualization div.canvas > div.process-flow.markable > div.transition.markable > div.transition-group-container > div.transition-line:hover{
+    cursor:pointer;
+}
+
+
+
+/* Large arrows */
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.large-arrow {
+	position:absolute;	
+	pointer-events: auto;
+}
+
+div.content > div.visualization div.canvas > div.process-flow > div.transition > div.large-arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 24px solid darkgrey;
+}
+    
+/* Large arrow markable */
+div.content > div.visualization div.canvas > div.process-flow.markable > div.transition.markable > div.large-arrow:hover{
+    cursor:pointer;
+}
+

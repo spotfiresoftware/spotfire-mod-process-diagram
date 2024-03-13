@@ -1,0 +1,110 @@
+{
+    "apiVersion": "1.3",
+    "version": "1.0.0",
+    "name": "Process Diagram",
+    "id": "process-diagram",
+    "icon": "icon.svg",
+    "properties": [
+        {
+            "name": "mod-config",
+            "type": "string",
+            "defaultValue": ""
+        }
+    ],
+    "dataViewDefinition": {
+        "colorAxis": {
+            "mode": "categorical",
+            "dropTarget": {
+                "icon": "Color",
+                "description": "Color by {0}"
+            }
+        },
+        "axes": [
+            {
+                "name": "Object Type",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Display Name",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Trellis By",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Activity ID",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Delay",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "SLA Violation",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Had Error",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Conditional",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Position X",
+                "mode": "continuous",
+                "placement": "none"
+            },
+            {
+                "name": "Position Y",
+                "mode": "continuous",
+                "placement": "none"
+            },
+            {
+                "name": "Task ID",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Initial Activity ID",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Terminal Activity ID",
+                "mode": "categorical",
+                "placement": "none"
+            },
+            {
+                "name": "Activated",
+                "mode": "categorical",
+                "placement": "none"
+            }
+        ]
+    },
+    "files": [
+        "index.html",
+        "main.css",
+        "default_configuration.js",
+        "default_configuration_template.js",
+        "main.js",
+        "process_flow.css",
+        "process_flow.js",
+        "process_objects.js",
+        "process_schematic.css",
+        "process_schematic.js",
+        "rect_marking.js",
+        "utility.js",
+        "viz_configuration.js"
+    ]
+}

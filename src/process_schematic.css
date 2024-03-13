@@ -1,0 +1,220 @@
+/*
+* Copyright © 2024. Cloud Software Group, Inc.
+* This file is subject to the license terms contained
+* in the license file that is distributed with this file.
+*/
+
+/* PROCESS SCHEMATIC */
+div.content > div.visualization div.canvas > div.process-schematic {
+    flex: 1 1 auto;
+	position:relative;
+	/*background-color:lightyellow;
+	border:1px solid goldenrod;*/
+}
+
+/* ACTIVITY */
+div.content > div.visualization div.canvas > div.process-schematic > div.activity{
+	position:absolute;
+    display:flex;
+    justify-content: center;
+    z-index:1;
+    width:34px;
+    height:34px;
+    border:2px solid transparent;
+	user-select: none;           /* Non-prefixed version, currently */
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+    pointer-events: none;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > svg {
+    flex: 0 0 auto;
+    pointer-events: auto;
+    width:100%;
+    height:100%;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > svg > circle{
+    /*stroke:black;*/
+    fill:none;
+    /*stroke: #999999;*/
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container {
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    width:100px;
+    pointer-events: auto;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.north {
+    justify-content: end;
+    text-align: center;
+    bottom: 30px;
+    left: calc(13px - 50px);
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.south {
+    justify-content: start;
+    text-align: center;
+    top: 25px;
+    left: calc(13px - 50px);
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.east {
+    text-align: left;
+    top: 3px;
+    left: 30px;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.west {
+    text-align: right;
+    top: calc(17px - 50%);
+    right: 30px;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container > div.title {
+	padding:4px;
+	font-size:12px;
+	/*color:#666666;*/
+}
+
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity.darkcolor{
+	font-size:12px;
+    /*color:white;*/
+}
+
+/* Activity markable */
+div.content > div.visualization div.canvas > div.process-schematic.markable > div.activity.markable:hover{
+    cursor:pointer;
+}
+
+
+
+/* PROCESS OBJECT */
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object > div.title-container > div.icons {
+    flex-grow:1;
+    display:flex;
+    flex-direction: row;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.east > div.icons {
+    justify-content:flex-start;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.west > div.icons {
+    justify-content:flex-end;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.north > div.icons {
+    justify-content:center;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.activity > div.title-container.south > div.icons {
+    justify-content:center;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object > div.title-container > div.icons > div.icon > svg {
+    height:15px;
+    width:15px;
+    fill:lightgrey;
+    display:none;
+}
+
+/* Icons */
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object.sla-violation > div > div.icons > div.icon.warning > svg {
+    display:block;
+	fill:crimson;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object.had-error > div > div.icons > div.icon.error > svg {
+    display:block;
+	fill:crimson;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object.jeopardy > div > div.icons > div.icon.clock > svg {
+    display:block;
+	fill:darkorange;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object.delayed > div > div.icons > div.icon.clock > svg {
+    display:block;
+	fill:crimson;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.process-object.delayed > div> div.icons > div.delay {
+    color:crimson;
+    font-weight:bold;
+    font-size:12px;
+}
+
+
+
+/* TRANSITION */
+div.content > div.visualization div.canvas > div.process-schematic > div.transition{
+	position:absolute;
+    z-index:2;
+    /*background-color: lime;*/
+    pointer-events: none;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition > svg {
+    display:block;
+    width:100%;
+    height:100%;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition > svg > polyline{
+    /*stroke:black; */
+    fill:none;
+    /*stroke: #999999;*/
+    pointer-events: auto;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition.markable > svg > polyline:hover{
+    cursor:pointer;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition.conditional > svg > polyline{
+    stroke-dasharray:7 1;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition.activated > svg > polyline{
+    stroke-dasharray:1 0;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition.activated.conditional > svg > polyline{
+    stroke-dasharray:7 1;
+}
+
+/* Large arrows */
+div.content > div.visualization div.canvas > div.process-schematic > div.transition > div.large-arrow {
+	position:absolute;	
+    pointer-events: auto;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition.right > div.large-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid darkgrey;
+}
+
+div.content > div.visualization div.canvas > div.process-schematic > div.transition.down > div.large-arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid darkgrey;
+}
+
+/* Large arrow markable */
+div.content > div.visualization div.canvas > div.process-schematic.markable > div.transition.markable > div.large-arrow:hover{
+    cursor:pointer;
+}
